@@ -1,0 +1,3 @@
+hbase表设计
+
+create 'imooc_course_clickcount','info'
