@@ -39,15 +39,10 @@ object FlumeKafkaTest {
     */
   case class CourseClickCount(day_course:String,click_count:Long)
   def main(args: Array[String]): Unit = {
-//    val logger = Logger.getLogger(this.getClass);
     //spark 配置
     val conf = new SparkConf().setAppName("FlumeKafkaTest").setMaster("local[2]")
     //spark streaming实时计算初始化 定义每10秒一个批次 准实时处理 企业一般都是准实时 比如每隔10秒统计近1分钟的数据等等
     val ssc = new StreamingContext(conf, Seconds(5))
-//    val spark = SparkSession.builder()
-//      .config(conf)
-//      .getOrCreate()
-//    spark.sparkContext.setLogLevel("WARN");
     //设置kafka参数
     val kafkaParams = Map[String, Object](
       "bootstrap.servers" -> "localhost:9092",
