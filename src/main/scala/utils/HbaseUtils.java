@@ -17,8 +17,8 @@ import java.io.IOException;
  * hbase工具类
  */
 public class HbaseUtils {
-    Configuration configuration = null;
-    Admin admin = null;
+    public static Configuration configuration = null;
+    public static Admin admin = null;
     /**
      * 私有构造方法
      */
@@ -28,7 +28,6 @@ public class HbaseUtils {
         configuration.set("hbase.rootdir","hdfs://localhost:9000/hbase");
 
         try {
-            admin = ConnectionFactory.createConnection(configuration).getAdmin();
             admin = ConnectionFactory.createConnection(configuration).getAdmin();
 
         } catch (IOException e) {

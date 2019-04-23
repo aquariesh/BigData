@@ -126,6 +126,7 @@ object KafkaToSparkStreamingToEs {
 
     //存入ES
     peopleStream.foreachRDD(rdd =>{
+
       EsSpark.saveToEs(rdd, "people/man")
       //EsSpark.saveJsonToEs(rdd,"people/man")
     })

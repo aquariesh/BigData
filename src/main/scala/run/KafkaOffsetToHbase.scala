@@ -139,6 +139,8 @@ object KafkaOffsetToHbase {
     *         存储到hbase里对应topic的偏移量
     */
   def storeOffset(ranges: Array[OffsetRange], topic: String): Unit = {
+//    val tableName = TableName.valueOf("test")
+//    val table2 = connHbase.getTable(tableName)
     val table = new HTable(hbaseConf, "test")
     table.setAutoFlush(false, false)
     ensureHbaseTableExist(topic)

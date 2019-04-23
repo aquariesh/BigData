@@ -43,6 +43,7 @@ object SparkStreamingUpStateByKey {
       *              Some
       *              None
       */
+
     val wordCountDStream = wordOneDstream.updateStateByKey((values: Seq[Int], state: Option[Int]) => {
       val currentCount = values.sum
       val lastCount = state.getOrElse(0)
